@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 using MantenimientoVisitas.Models;
@@ -18,10 +19,18 @@ namespace MantenimientoVisitas.Models
     
         public MantenimientoVisitasContext() : base("name=MantenimientoVisitasContext")
         {
+            Database.SetInitializer(new CreateDatabaseIfNotExists<MantenimientoVisitasContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MantenimientoVisitasContext>());
         }
 
         public DbSet<Persona> Personas { get; set; }
-        public DbSet<Area> Areas { get; set; }
         public DbSet<Visita> Visitas { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            base.OnModelCreating(modelBuilder);
+
+        }
     }
 }

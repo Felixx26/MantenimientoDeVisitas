@@ -17,14 +17,8 @@ namespace MantenimientoVisitas.Controllers
         // GET: Visitas
         public ActionResult Index()
         {
-            var visitas = db.Visitas.Include(v => v.Area).Include(v => v.Persona);
+            var visitas = db.Visitas.Include(v => v.Persona);
             return View(visitas.ToList());
-        }
-
-        public ActionResult Indexs(string nombre)
-        {
-            var visitas = db.Visitas.Include(v => v.Area).Include(v => v.Persona).Where(v => v.Area.NombreArea.Contains(nombre));
-            return View("Index", visitas.ToList());
         }
 
         // GET: Visitas/Details/5
@@ -45,8 +39,8 @@ namespace MantenimientoVisitas.Controllers
         // GET: Visitas/Create
         public ActionResult Create()
         {
-            ViewBag.AreaID = new SelectList(db.Areas, "AreaID", "NombreArea");
             ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre");
+            ViewBag.Apellido = new SelectList(db.Personas, "PersonaID", "Apellido");
             return View();
         }
 
@@ -55,7 +49,7 @@ namespace MantenimientoVisitas.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VisitaID,AreaID,Fecha,HoraEntrada,HoraSalida,PersonaID,Motivo")] Visita visita)
+        public ActionResult Create([Bind(Include = "VisitaID,Motivo,Fecha,HoraEntrada,HoraSalida,PersonaID,Usuario")] Visita visita)
         {
             if (ModelState.IsValid)
             {
@@ -64,8 +58,8 @@ namespace MantenimientoVisitas.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AreaID = new SelectList(db.Areas, "AreaID", "NombreArea", visita.AreaID);
             ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", visita.PersonaID);
+            ViewBag.Apellido = new SelectList(db.Personas, "PersonaID", "Apellido", visita.PersonaID);
             return View(visita);
         }
 
@@ -81,8 +75,8 @@ namespace MantenimientoVisitas.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AreaID = new SelectList(db.Areas, "AreaID", "NombreArea", visita.AreaID);
             ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", visita.PersonaID);
+            ViewBag.Apellido = new SelectList(db.Personas, "PersonaID", "Apellido", visita.PersonaID);
             return View(visita);
         }
 
@@ -91,7 +85,7 @@ namespace MantenimientoVisitas.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VisitaID,AreaID,Fecha,HoraEntrada,HoraSalida,PersonaID,Motivo")] Visita visita)
+        public ActionResult Edit([Bind(Include = "VisitaID,Motivo,Fecha,HoraEntrada,HoraSalida,PersonaID,Usuario")] Visita visita)
         {
             if (ModelState.IsValid)
             {
@@ -99,8 +93,8 @@ namespace MantenimientoVisitas.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AreaID = new SelectList(db.Areas, "AreaID", "NombreArea", visita.AreaID);
             ViewBag.PersonaID = new SelectList(db.Personas, "PersonaID", "Nombre", visita.PersonaID);
+            ViewBag.Apellido = new SelectList(db.Personas, "PersonaID", "Apellido", visita.PersonaID);
             return View(visita);
         }
 
@@ -138,7 +132,5 @@ namespace MantenimientoVisitas.Controllers
             }
             base.Dispose(disposing);
         }
-
-
     }
 }

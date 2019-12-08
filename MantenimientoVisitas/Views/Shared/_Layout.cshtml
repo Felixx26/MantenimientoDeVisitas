@@ -1,43 +1,42 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/materialize")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Mantenimiento de Visitas", "Index", "Personas", new { area = "" }, new { @class = "navbar-brand" })
+    <nav>
+        <div class="nav-wrapper">
+            @Html.ActionLink("Mantenimiento de Visitas", "Index", "Personas", new { area = "" }, new { @class = "brand-logo" })
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>@Html.ActionLink("Inicio", "Index", "Personas")</li>
+                <li>@Html.ActionLink("Visitas", "Index", "Visitas")</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row">
+
+        <div class="col s12 m4 l3">
+
+            <div class="collection">
+                @Html.ActionLink("Inicio", "Index", "Personas", null, new { @class = "collection-item" })
+                @Html.ActionLink("Visitas", "Index", "Visitas", null, new { @class = "collection-item" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Personas")</li>
-                    <li>@Html.ActionLink("Areas", "Index", "Areas")</li>
-                    <li>@Html.ActionLink("Visitas", "Index", "Visitas")</li>
-                </ul>
-            </div>
+
+        </div>
+
+        <div class="col s12 m8 l9">
+            @RenderBody()
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            </footer>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/materializejs")
     @RenderSection("scripts", required: false)
 </body>
 </html>

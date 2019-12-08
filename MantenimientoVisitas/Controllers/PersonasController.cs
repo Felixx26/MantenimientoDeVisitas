@@ -20,6 +20,12 @@ namespace MantenimientoVisitas.Controllers
             return View(db.Personas.ToList());
         }
 
+        public ActionResult Indexs(int id)
+        {
+            var personas = db.Personas.Where(p => p.PersonaID == id);
+            return View("Index",personas.ToList());
+        }
+
         // GET: Personas/Details/5
         public ActionResult Details(int? id)
         {
@@ -46,7 +52,7 @@ namespace MantenimientoVisitas.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonaID,Nombre,Apellido,Direccion,Correo")] Persona persona)
+        public ActionResult Create([Bind(Include = "PersonaID,Nombre,Apellido,Identificacion,Fecha")] Persona persona)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +84,7 @@ namespace MantenimientoVisitas.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonaID,Nombre,Apellido,Direccion,Correo")] Persona persona)
+        public ActionResult Edit([Bind(Include = "PersonaID,Nombre,Apellido,Identificacion,Fecha")] Persona persona)
         {
             if (ModelState.IsValid)
             {

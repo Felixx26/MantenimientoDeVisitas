@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Area.NombreArea)
+            Nombre Completo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Persona.Nombre)
+            @Html.DisplayNameFor(model => model.Motivo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Fecha)
@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.HoraSalida)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Motivo)
+            @Html.DisplayNameFor(model => model.Usuario)
         </th>
         <th></th>
     </tr>
@@ -35,10 +35,11 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Area.NombreArea)
+            @Html.ActionLink(Html.DisplayFor(modelItem => item.Persona.Nombre).ToString() +" "+ Html.DisplayFor(modelItem => item.Persona.Apellido).ToString(), "Indexs","Personas", new { id = item.Persona.PersonaID },null)
+
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Persona.Nombre)
+            @Html.DisplayFor(modelItem => item.Motivo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Fecha)
@@ -50,7 +51,7 @@
             @Html.DisplayFor(modelItem => item.HoraSalida)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Motivo)
+            @Html.DisplayFor(modelItem => item.Usuario)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.VisitaID }) |

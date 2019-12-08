@@ -9,8 +9,7 @@ namespace MantenimientoVisitas.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "MantenimientoVisitas.Models.MantenimientoVisitasContext";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(MantenimientoVisitas.Models.MantenimientoVisitasContext context)

@@ -126,19 +126,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AreasController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonasController.cs" />
     <Compile Include="Controllers\VisitasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911291415438_InitialCreate.cs" />
-    <Compile Include="Migrations\201911291415438_InitialCreate.Designer.cs">
-      <DependentUpon>201911291415438_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201912072341117_mgration.cs" />
+    <Compile Include="Migrations\201912072341117_mgration.Designer.cs">
+      <DependentUpon>201912072341117_mgration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Area.cs" />
     <Compile Include="Models\MantenimientoVisitasContext.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Visita.cs" />
@@ -149,12 +146,17 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\material.css" />
+    <Content Include="Content\material.min.css" />
+    <Content Include="Content\materialize.css" />
+    <Content Include="Content\materialize.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\material.min.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -165,6 +167,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\material.js" />
+    <Content Include="Scripts\material.min.js" />
+    <Content Include="Scripts\materialize.js" />
+    <Content Include="Scripts\materialize.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -177,23 +183,19 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Personas\Create.cshtml" />
     <Content Include="Views\Personas\Delete.cshtml" />
     <Content Include="Views\Personas\Details.cshtml" />
     <Content Include="Views\Personas\Edit.cshtml" />
     <Content Include="Views\Personas\Index.cshtml" />
-    <Content Include="Views\Areas\Create.cshtml" />
-    <Content Include="Views\Areas\Delete.cshtml" />
-    <Content Include="Views\Areas\Details.cshtml" />
-    <Content Include="Views\Areas\Edit.cshtml" />
-    <Content Include="Views\Areas\Index.cshtml" />
     <Content Include="Views\Visitas\Create.cshtml" />
     <Content Include="Views\Visitas\Delete.cshtml" />
     <Content Include="Views\Visitas\Details.cshtml" />
     <Content Include="Views\Visitas\Edit.cshtml" />
     <Content Include="Views\Visitas\Index.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Scripts\material.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -212,8 +214,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911291415438_InitialCreate.resx">
-      <DependentUpon>201911291415438_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912072341117_mgration.resx">
+      <DependentUpon>201912072341117_mgration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
