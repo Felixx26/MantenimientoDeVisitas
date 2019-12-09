@@ -1,15 +1,19 @@
 ﻿<!DOCTYPE html>
-<html>
+<html style="height:95%">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/bootstrapcss")
     @Styles.Render("~/Content/materialize")
+    @Styles.Render("~/Content/css")
+
 </head>
-<body>
-    <nav>
-        <div class="nav-wrapper">
+<body style="height:93%">
+    <nav class="navbar-fixed">
+        <div class="nav-wrapper" style="padding: 0 10px 0 10px">
             @Html.ActionLink("Mantenimiento de Visitas", "Index", "Personas", new { area = "" }, new { @class = "brand-logo" })
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>@Html.ActionLink("Inicio", "Index", "Personas")</li>
@@ -17,9 +21,9 @@
             </ul>
         </div>
     </nav>
-    <div class="row">
+    <div class="row" style="height:100%">
 
-        <div class="col s12 m4 l3">
+        <div id="div1" class="col s12 m4 l3 cyan lighten-5" style="height:100%">
 
             <div class="collection">
                 @Html.ActionLink("Inicio", "Index", "Personas", null, new { @class = "collection-item" })
@@ -28,14 +32,15 @@
 
         </div>
 
-        <div class="col s12 m8 l9">
+        <div class="col s12 m8 l9 ">
             @RenderBody()
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-            </footer>
         </div>
     </div>
-
+    <footer class="navbar-fixed-bottom grey lighten-5 center-align">
+        <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+    </footer>
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materializejs")
     @RenderSection("scripts", required: false)
 </body>
